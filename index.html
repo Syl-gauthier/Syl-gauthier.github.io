@@ -8,15 +8,6 @@
 </head>
 
 <body>
-  <header>
-    <h1>Sylvain Gauthier</h1>
-  </header>
-  <nav>
-    <a href='#'>Présentation</a>
-    <a href='#'>Compétence</a>
-    <a href='#'>Contact</a>
-    <a href='#'>CV</a>
-  </nav>
   <div id='body-wrapper'>
     <section>
       <article>
@@ -33,11 +24,23 @@
       </article>
     </section>
   </div>
-  <footer>
-    aaa
-  </footer>
+  <script src='./lib/jquery-3.2.1.min.js'></script>
   <script>
-    
+    $.ajax({
+      type: "GET",
+      url: "./templates/header.html",
+      success: function(text) {
+        $('body').prepend(text);
+      }
+    });
+
+    $.ajax({
+      type: "GET",
+      url: "./templates/footer.html",
+      success: function(text) {
+        $('body').append(text);
+      }
+    });
   </script>
 </body>
 
